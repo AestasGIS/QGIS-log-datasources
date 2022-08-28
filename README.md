@@ -12,7 +12,7 @@ The startup.py python script has to be copied every computer with QGIS installed
 ![Udklip](https://user-images.githubusercontent.com/1866520/187031406-7b210161-bf60-4e3b-84d3-e262d0162653.jpg)
 
 ## Setup
-Is is possible to change several types of settings by changing constant values inside the script. All settings are documentet using comments.
+Is is possible to change several types of settings by changing constant values inside the script. All settings are documented in the script using comments.
 
 
 
