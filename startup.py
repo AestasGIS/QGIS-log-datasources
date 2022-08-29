@@ -1,4 +1,4 @@
-from qgis.core import QgsProject, QgsMessageLog, Qgis
+from qgis.core import QgsProject, QgsMessageLog, Qgis, QgsRasterDataProvider
 from datetime import datetime
 from os import getlogin
 from os.path import exists
@@ -31,9 +31,13 @@ def onLayersAdded(layers):
             name = layer.name()
             datap = layer.dataProvider()
 
-            if datap:  
+            if datap:            
                 uri = datap.dataSourceUri()
-                stype = datap.storageType()
+        
+                if isinstance(datap,QgsRasterDataProvider):
+                    stype = 'raster'
+                else:
+                    stype = datap.storageType()
                 
         # What to log is defined by the GIS administrator
 
