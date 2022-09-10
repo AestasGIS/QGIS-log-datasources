@@ -10,6 +10,9 @@ The startup.py python script has to be copied every computer with QGIS installed
 
 ![Udklip](https://user-images.githubusercontent.com/1866520/187031406-7b210161-bf60-4e3b-84d3-e262d0162653.jpg)
 
+## Installation using the "install.cmd" Windows command script
+If you place the *startup.py* and the *install.cmd* files together in an abitrary directory you can install the startup.py by double-clicking on the *install.cmd* from Windows File Explorer. The install script checks if there is an existing startup.py and renames this to startup.deprecated_<*timestamp*>.py before installing the new startup.py. 
+
 ## Setup
 Is is possible to change several types of settings by changing constant values inside the script. All settings are documented in the script using comments.
 
