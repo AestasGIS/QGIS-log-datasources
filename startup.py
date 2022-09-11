@@ -20,10 +20,10 @@ LOG_FILE = 'd:/tmp/loglag.csv'
 LOG_ROW = '"{now}";"{host}";"{login}";"{name}";"{uri}";"{stype}"\n'
 
 # Error message written to the QGIS log if the external log can't be opened
-MESS = 'Logfil: {} kunne ikke åbnes'
+ERR_MESS = 'Logfil: {} kunne ikke åbnes'
 
 # Tab in QGIS log to write error message
-TAB = 'Logning'
+ERR_TAB = 'Logning'
 
 lfError = False
 
@@ -62,7 +62,7 @@ def onLayersAdded(layers):
         lfError = False
 
     except OSError:
-        if not lfError: QgsMessageLog.logMessage(MESS.format(LOG_FILE), TAB, Qgis.Warning, False)
+        if not lfError: QgsMessageLog.logMessage(ERR_MESS.format(LOG_FILE), ERR_TAB, Qgis.Warning, False)
         lfError = True
 
 QgsProject.instance().layersAdded.connect(onLayersAdded)
