@@ -4,19 +4,33 @@ from os import getlogin
 from os.path import exists
 from socket import gethostname
 
-# Location of log file - Prefereably a network file. Every QGIS use has to have write access to this file
+# Location of log file - Must be a network file and every QGIS user has to have write-access to this file
 LOG_FILE = 'd:/tmp/loglag.csv'
 
-# Error message wriiten to the QGIS log if the external log can't be opened
+# What to log (see examples on how to format row string)..
+# You can use the following tokens: now : timestamp, host : hostname for computer, login : login name for user, 
+#                                   name : layer name, uri : uri string for layer, stype : sourcetype for layer
+
+# Example of a minimum solution:
+# LOG_ROW = '"{now}";"{uri}";"{stype}"\n'
+
+# Example of a comprehensive solution:
+# LOG_ROW = '"{now}";"{host}";"{login}";"{name}";"{uri}";"{stype}"\n'
+
+LOG_ROW = '"{now}";"{host}";"{login}";"{name}";"{uri}";"{stype}"\n'
+
+# Error message written to the QGIS log if the external log can't be opened
 MESS = 'Logfil: {} kunne ikke åbnes'
 
 # Tab in QGIS log to write error message
 TAB = 'Logning'
 
-error = False
+lfError = False
 
 def onLayersAdded(layers):
 
+    global lfError
+    
     now = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     login = getlogin()
     host = gethostname()
@@ -38,25 +52,17 @@ def onLayersAdded(layers):
                     stype = 'raster'
                 else:
                     stype = datap.storageType()
-                
-        # What to log is defined by the GIS administrator
 
-        # Example for a minimum solution:
-        # strx += '"{}";"{}";"{}"\n'.format(now, uri, stype)
-
-        # Example for a comprehensive solution:
-        # strx += '"{}";"{}";"{}";"{}";"{}";"{}"\n'.format(now, host, login, name, uri, stype)
-
-        strx += '"{}";"{}";"{}";"{}";"{}";"{}"\n'.format(now, host, login, name, uri, stype)
+        strx += LOG_ROW.format(now=now, host=host, login=login, name=name, uri=uri, stype=stype)
 
     try:
         g = open(LOG_FILE, "a")
         g.write(strx)
         g.close()
-        error = False
+        lfError = False
 
     except OSError:
-        if not error: QgsMessageLog.logMessage(MESS.format(LOG_FILE), TAB, Qgis.Warning, False)
-        error = True
+        if not lfError: QgsMessageLog.logMessage(MESS.format(LOG_FILE), TAB, Qgis.Warning, False)
+        lfError = True
 
 QgsProject.instance().layersAdded.connect(onLayersAdded)
