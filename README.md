@@ -28,9 +28,9 @@ Is is possible to change several types of settings by changing constant values i
 
 The following values has to be set inside the startup.py script:
 
-LOG_FILE : Location of the csv file. Has to be a located on a network drive and all QGIS users has to have write-access to the file.
+**LOG_FILE** : Location of the csv file. Has to be a located on a network drive and all QGIS users has to have write-access to the file.
 
-LOG_ROW: What to log. The LOG_ROW string has to be formatted correctly to function. Se below or inside the startup.py script for examples.
+**LOG_ROW** : What to log. The LOG_ROW string has to be formatted correctly to function. Se below or inside the startup.py script for examples.
 
 You can use the following tokens when formatting : 
 - now : timestamp, 
@@ -48,9 +48,9 @@ Example of a comprehensive solution:
 
     LOG_ROW = '"{now}";"{host}";"{login}";"{name}";"{uri}";"{stype}"\n'
 
-ERR_MESS  : Error message written to the QGIS log if the external log can't be opened
+**ERR_MESS**  : Error message written to the QGIS log if the external log can't be opened
 
-ERR_TAB : Tab in QGIS log to write error message to
+**ERR_TAB** : Tab in QGIS log to write error message to
 
 
 
