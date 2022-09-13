@@ -9,6 +9,8 @@ It's not uncommon for some organisations to use several hundred external data-re
 
 The purpose of the script is to find which datasources that *actually* are used so it's possible to deprecate / remove presently maintained but *unused* datasources in your organization, thus minimizing the administrative burden. 
 
+Another purpose is to detect the use of old or deprecated datasources, so use of these sources can be stopped.
+
 ## How ? 
 Every time QGIS starts, it will execute the startup.py script. The script activates an event function, that registers every time QGIS opens a new layer and report this event into a common, shared csv file. 
 After a period the csv file will contain the name of every datasource that has been opened by QGIS users. The csv file can then be examined by Excel using the pivot function. 
