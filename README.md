@@ -26,7 +26,7 @@ The easiest method (for you) is to ask your IT-department to make an update to t
 If you place the *startup.py* and the *install.cmd* files together in an arbitrary directory you can install the startup.py by double-clicking on the *install.cmd* from Windows File Explorer. The install.cmd script checks if there is an existing startup.py and renames this to startup.deprecated_<*timestamp*>.py before installing the new startup.py. 
 
 ## Setup
-Is is possible to change several types of settings by changing constant values inside the script. All settings are clearly **documented** in the startup.py **script** using comments. You can edit the script file with a simple text editor like NotePad
+Is is possible to change several types of settings by changing constant values inside the script. All settings are clearly **documented** in the startup.py script using comments. You can edit the script file with a simple text editor like NotePad
 
 The following values has to be set inside the startup.py script:
 
@@ -44,7 +44,7 @@ You can use the following tokens when formatting :
 
 Example of a minimum solution:
 
-    LOG_ROW = '"{now}";"{uri}";"{stype}"\n'´´´
+    LOG_ROW = '"{now}";"{uri}";"{stype}"\n'
 
 Example of a comprehensive solution:
 
