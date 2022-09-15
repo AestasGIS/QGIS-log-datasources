@@ -20,7 +20,7 @@ The startup.py python script has to be copied to every computer with QGIS instal
 
 ![Udklip](https://user-images.githubusercontent.com/1866520/187031406-7b210161-bf60-4e3b-84d3-e262d0162653.jpg)
 
-The easiest method (for you) is to ask your IT-department to make an update to the QGIS installation. However, it it possible to it manually update an existing QGIS installtion.
+The easiest method (for you) is to ask your IT-department to make an update to the QGIS installation. However, it is possible to manually update an existing QGIS installtion.
 
 ## Installation using the "install.cmd" Windows command script
 If you place the *startup.py* and the *install.cmd* files together in an arbitrary directory you can install the startup.py by double-clicking on the *install.cmd* from Windows File Explorer. The install.cmd script checks if there is an existing startup.py and renames this to startup.deprecated_<*timestamp*>.py before installing the new startup.py. 
