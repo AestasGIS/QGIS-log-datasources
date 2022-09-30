@@ -1,5 +1,5 @@
 # QGIS-log-datasources
-Python script to log all the datasources QGIS is opening and using during a session.
+Python script to log all the datasources QGIS is opening and using during a session. 
 
 This script logs each and every datasource QGIS is opening and report this event to a csv file (normally placed on a networked drive shared by all users). 
 The script should work on QGIS ver 3+ in Windows environments. It is possible getting it to work in a Linux environment by altering the location of the startup.py script and the csv file location (a constant value defined in the script).
