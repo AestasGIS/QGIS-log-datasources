@@ -30,9 +30,10 @@ Is is possible to change several types of settings by changing constant values i
 
 The following values has to be set inside the startup.py script:
 
-**LOG_FILE** : Location of the csv file. Has to be a located on a network drive and all QGIS users has to have write-access to the file.
+**LOG_FILE** : Location of the csv file. This file has to be a located on a common network drive and all QGIS users has to have write-access to this file. 
+NB! When you define the location of the csv file you'll have to use the "forward slash" character to define directory names. Like this: "o:/temp/logfile.csv". Python will interpret a "backslash" as an escape character. If you insist on using backslash, you'll have to double it: "o:\\\\temp\\\\logfile.csv" 
 
-**LOG_ROW** : What to log. The LOG_ROW string has to be formatted correctly to function. Se below or inside the startup.py script for examples.
+**LOG_ROW** : What to log. The LOG_ROW string has to be formatted correctly to function (It's a Python format definition string). Se below or inside the startup.py script for examples.
 
 You can use the following tokens when formatting : 
 - now : timestamp, 
